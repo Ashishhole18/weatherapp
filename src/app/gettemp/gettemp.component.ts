@@ -18,6 +18,10 @@ export class GettempComponent implements OnInit {
   city:string="";
   sysobj:object;
   temp:number;
+  description:string="";
+  country:string="";
+  lon:number;
+  lat:number;
   ngOnInit() {
      this.data1=this.route.snapshot.paramMap.get('city');
     console.log(this.data1);
@@ -31,6 +35,10 @@ export class GettempComponent implements OnInit {
         this.main=this.data['main'];
         this.temp=this.main['temp'];
         this.temp=Math.round((this.temp-32)*(5/9));
+        this.description=this.weather['description'];
+        this.country=this.sysobj['country'];
+        this.lon=this.coord['lon'];
+        this.lat=this.coord['lat'];
         console.log("response",this.data);
         console.log("array",this.weather);
         console.log("TIme",this.temp);
